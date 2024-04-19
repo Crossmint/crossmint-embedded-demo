@@ -61,7 +61,7 @@ const Minting: React.FC<MintingProps> = ({ orderIdentifier }) => {
               <a
                 target="_blank"
                 className="block bg-[#663399] rounded-lg mt-3 p-3 text-white"
-                href={`https://mumbai.polygonscan.com/tx/${result?.txId}`}
+                href={`https://amoy.polygonscan.com/tx/${result?.txId}`}
               >
                 View on Polygonscan
               </a>
