@@ -54,7 +54,7 @@ const Minting: React.FC<MintingProps> = ({ orderIdentifier }) => {
               <a
                 target="_blank"
                 className="block bg-[#2081e2] rounded-lg mt-3 p-3 text-white"
-                href={`https://testnets.opensea.io/assets/mumbai/${result?.contractAddress}/${result?.tokenIds[0]}`}
+                href={`https://testnets.opensea.io/assets/amoy/${result?.contractAddress}/${result?.tokenIds[0]}`}
               >
                 View on OpenSea
               </a>
@@ -68,7 +68,7 @@ const Minting: React.FC<MintingProps> = ({ orderIdentifier }) => {
               <a
                 target="_blank"
                 className="block bg-[#81feab] rounded-lg mt-3 p-3 text-black"
-                href={`https://staging.crossmint.com/user/collection/poly:${result?.contractAddress}:${result?.tokenIds[0]}`}
+                href={`https://staging.crossmint.com/user/collection/polygon-amoy:${result?.contractAddress}:${result?.tokenIds[0]}`}
               >
                 View in Crossmint
               </a>
