@@ -1,5 +1,5 @@
 This is a Crossmint demo project that you can build using following the quickstart guide:
-https://docs.crossmint.com/nft-checkout/embedded/quickstart
+<https://docs.crossmint.com/nft-checkout/embedded/quickstart>
 
 Built with [Next.js](https://nextjs.org/) and bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
@@ -43,6 +43,19 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Learn More
 
 - Checkout the Crossmint [NFT Checkout Embeddedd docs](https://docs.crossmint.com/nft-checkout/embedded/overview)
+
+## FAQ
+
+Q: My projectID and collectionID are valid, but the purchase button is greyed out.
+A: This may be because the projectID has smart wallets enabled, which requires the recipient prop to be set. The boilerplate code block that displays the email,
+
+``` Javascript
+ emailInputOptions={{
+              show: true,
+            }}
+```
+
+Is not compatible with smart wallets. You can hardcode an email to mint with smart wallets to using the {recipient} prop, described [here](https://docs.crossmint.com/nft-checkout/advanced/component-properties#subproperties).
 
 ## Deploy on Vercel
 
