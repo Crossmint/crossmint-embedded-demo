@@ -54,21 +54,21 @@ const Minting: React.FC<MintingProps> = ({ orderIdentifier }) => {
               <a
                 target="_blank"
                 className="block bg-[#2081e2] rounded-lg mt-3 p-3 text-white"
-                href={`https://testnets.opensea.io/assets/amoy/${result?.contractAddress}/${result?.tokenIds[0]}`}
+                href={`https://testnets.opensea.io/assets/base-sepolia/${result?.contractAddress}/${result?.tokenIds[0]}`}
               >
                 View on OpenSea
               </a>
               <a
                 target="_blank"
                 className="block bg-[#663399] rounded-lg mt-3 p-3 text-white"
-                href={`https://amoy.polygonscan.com/tx/${result?.txId}`}
+                href={`https://sepolia.basescan.org/tx/${result?.txId}`}
               >
-                View on Polygonscan
+                View on Basescan
               </a>
               <a
                 target="_blank"
                 className="block bg-[#81feab] rounded-lg mt-3 p-3 text-black"
-                href={`https://staging.crossmint.com/user/collection/polygon-amoy:${result?.contractAddress}:${result?.tokenIds[0]}`}
+                href={`https://staging.crossmint.com/user/collection/base-sepolia:${result?.contractAddress}:${result?.tokenIds[0]}`}
               >
                 View in Crossmint
               </a>
