@@ -9,7 +9,7 @@ To skip the walkthrough and get this app running immediately you can clone the r
 
 ```bash
 # copy the repo to your local machine
-git clone git@github.com:Crossmint/crossmint-embedded-demo.git
+git clone https://github.com/Crossmint/crossmint-embedded-demo.git
 
 # change into the directory
 cd crossmint-embedded-demo
