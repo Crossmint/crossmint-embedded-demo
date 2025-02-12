@@ -1,48 +1,44 @@
 "use client";
 
-import React, { useState } from "react";
-import { CrossmintPaymentElement } from "@crossmint/client-sdk-react-ui";
+import type React from "react";
+import { useState } from "react";
+import {
+  CrossmintProvider,
+  CrossmintEmbeddedCheckout,
+  CrossmintCheckoutProvider,
+} from "@crossmint/client-sdk-react-ui";
 import Minting from "./Minting";
 
 const Crossmint: React.FC = () => {
-  const [orderIdentifier, setOrderIdentifier] = useState<string | null>(null);
+  const [orderIdentifier] = useState<string | null>(null);
 
-  const projectId = process.env.NEXT_PUBLIC_PROJECT_ID as string;
   const collectionId = process.env.NEXT_PUBLIC_COLLECTION_ID as string;
-  const environment = process.env.NEXT_PUBLIC_ENVIRONMENT as string;
+  const clientApiKey = process.env.NEXT_PUBLIC_CLIENT_API_KEY as string;
 
   return (
-    <>
-      <div className="sm:col-span-3">
-        {orderIdentifier === null ? (
-          <CrossmintPaymentElement
-            projectId={projectId}
-            collectionId={collectionId}
-            environment={environment}
-            emailInputOptions={{
-              show: true,
-            }}
-            mintConfig={{
-              type: "erc-721",
-              totalPrice: "0.001",
-            }}
-            onEvent={(event) => {
-              switch (event.type) {
-                case "payment:process.succeeded":
-                  console.log(event);
-                  setOrderIdentifier(event.payload.orderIdentifier);
-                  break;
-                default:
-                  console.log(event);
-                  break;
-              }
-            }}
-          />
-        ) : (
-          <Minting orderIdentifier={orderIdentifier} />
-        )}
-      </div>
-    </>
+    <CrossmintProvider apiKey={clientApiKey}>
+      <CrossmintCheckoutProvider>
+        <div className="sm:col-span-3">
+          {orderIdentifier === null ? (
+            <CrossmintEmbeddedCheckout
+              lineItems={{
+                collectionLocator: `crossmint:${collectionId}`,
+                callData: {
+                  totalPrice: "0.001",
+                  quantity: 1,
+                },
+              }}
+              payment={{
+                crypto: { enabled: true },
+                fiat: { enabled: true },
+              }}
+            />
+          ) : (
+            <Minting orderIdentifier={orderIdentifier} />
+          )}
+        </div>
+      </CrossmintCheckoutProvider>
+    </CrossmintProvider>
   );
 };
 
