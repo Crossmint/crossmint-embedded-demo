@@ -14,7 +14,7 @@
     "@crossmint/client-sdk-react-ui": "^1.13.12",
     "@crossmint/client-sdk-smart-wallet": "^0.1.33",
     "@crossmint/server-sdk": "^1.2.3",
-    "next": "14.0.3",
+    "next": "14.0.5",
     "react": "^18",
     "react-dom": "^18"
   },
